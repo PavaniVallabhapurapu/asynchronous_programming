@@ -1,19 +1,21 @@
-// let promise = new Promise((resolve, reject) => {
-//     console.log("I am a promise")
-//     reject("some erroe occurred")
-// })
 
-function getData(dataId, getNextData){
+function fetchData() {
     return new Promise((resolve, reject) => {
-        setTimeout(() =>{
-            console.log("data", dataId)
-            resolve("success")
-            if(getNextData){
-                getNextData
+        setTimeout(() => {
+            let success = true
+            if (success) {
+                resolve("Data fetched")
+            } else {
+                reject("Error fetching data")
             }
-    
         }, 2000)
     })
 }
-let promise = getData(123)
-console.log(getData(promise))
+
+fetchData()
+    .then((message) => {
+        console.log("promise " , message)
+    })
+    .catch((error) => {
+        console.log(error)
+    })

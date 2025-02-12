@@ -1,8 +1,12 @@
-function sum(a,b){
-    console.log(a+b)
+function fetchData(callback) {
+    setTimeout(() => {
+        console.log("Data fetched")
+        callback()
+    }, 4000)
 }
 
-function calculator(a,b,sumCallback){
-    sumCallback(a,b)
+function processData() {
+    console.log("Processing data...")
 }
-calculator(4,5,sum)
+
+fetchData(processData)
